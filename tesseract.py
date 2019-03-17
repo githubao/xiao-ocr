@@ -16,12 +16,13 @@ filepath = '/Users/baoqiang/Downloads/技术发展/技术栈1'
 
 
 def process_sample():
-    fullname = '/Users/baoqiang/Downloads/2.png'
+    # fullname = '/Users/baoqiang/Downloads/2.png'
+    fullname = '/Users/baoqiang/Downloads/技术发展/技术栈2/02-数据结构和算法.jpeg'
 
     image = Image.open(fullname)
 
-    # text = pytesseract.image_to_string(image, lang='chi_sim', config='--psm 6')
-    text = pytesseract.image_to_string(image)
+    text = pytesseract.image_to_string(image, lang='chi_sim', config='--psm 6')
+    # text = pytesseract.image_to_string(image)
 
     print(text)
 

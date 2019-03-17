@@ -9,6 +9,7 @@
 """
 
 from aip import AipOcr
+import os
 
 config = {
     'appId': '15760442',
@@ -17,6 +18,25 @@ config = {
 }
 
 client = AipOcr(**config)
+
+filepath = '/Users/baoqiang/Downloads/技术发展/技术栈6'
+
+
+def process_path():
+    for filename in os.listdir(filepath):
+        if 'DS_Store' in filename:
+            continue
+
+        fullname = os.path.join(filepath, filename)
+
+        text = img_to_str(fullname)
+
+        print('{}\n{}'.format(fullname, '#' * 5))
+        print(text)
+
+        print('{}\n'.format('*' * 30))
+
+        # break
 
 
 def process_sample():
@@ -39,4 +59,5 @@ def img_to_str(image_path):
 
 
 if __name__ == '__main__':
-    process_sample()
+    # process_sample()
+    process_path()
