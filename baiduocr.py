@@ -10,16 +10,17 @@
 
 from aip import AipOcr
 import os
+import base64
 
 config = {
     'appId': '15760442',
     'apiKey': 'wii1Nkc6xMzqLGt6UtMLEQ4b',
-    'secretKey': '***'
+    'secretKey': '4Gl2Ijbf6WdEPnpjQqyFOBkf9BIY4P9N'
 }
 
 client = AipOcr(**config)
 
-filepath = '/Users/baoqiang/Downloads/技术发展/技术栈6'
+filepath = '/Users/baoqiang/Downloads/abc'
 
 
 def process_path():
@@ -53,7 +54,12 @@ def get_file_content(file):
 
 def img_to_str(image_path):
     image = get_file_content(image_path)
+    # b64image = base64.b64encode(image)
     result = client.basicGeneral(image)
+    if 'error_code' in result and result['error_code'] != 0:
+        print('err: {}, {}'.format(result['error_code'],result['error_msg']))
+        return None
+
     if 'words_result' in result:
         return '\n'.join([w['words'] for w in result['words_result']])
 

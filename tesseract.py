@@ -12,7 +12,8 @@ import os
 from PIL import Image
 import pytesseract
 
-filepath = '/Users/baoqiang/Downloads/技术发展/技术栈1'
+# filepath = '/Users/baoqiang/Downloads/技术发展/技术栈1'
+filepath = '/Users/baoqiang/Downloads/app'
 
 
 def process_sample():
@@ -43,5 +44,5 @@ def process_path():
 
 
 if __name__ == '__main__':
-    process_sample()
-    # process_path()
+    # process_sample()
+    process_path()
